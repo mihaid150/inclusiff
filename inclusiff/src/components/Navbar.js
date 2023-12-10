@@ -114,6 +114,16 @@ function NavBar() {
               </Nav.Link>
             </Nav.Item>}
 
+            {isAuthenticated && role === 'PEOPLE' && <Nav.Item>
+              <Nav.Link
+                  as={Link}
+                  to="/my-trainings"
+                  onClick={() => updateExpanded(false)}
+              >
+                <AiOutlineUser style={{ marginBottom: "2px" }} />  My Trainings
+              </Nav.Link>
+            </Nav.Item>}
+
             {!isAuthenticated && <Nav.Item>
               <Nav.Link
                   as={Link}

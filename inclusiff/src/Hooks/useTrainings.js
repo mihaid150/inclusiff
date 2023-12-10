@@ -11,7 +11,7 @@ function useTrainings() {
     }
 
     const getLearnerTrainings = async (userId) => {
-        const response = await axios.get(`http://localhost:10004/${userId}`)
+        const response = await axios.get(`http://localhost:10004/user/${userId}/trainings`)
         if (response.status === 200) {
             return response.data
         } else {
