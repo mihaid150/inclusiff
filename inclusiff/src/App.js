@@ -20,6 +20,7 @@ import "./App.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Trainings from "./components/Trainings/Trainings";
 import EnterpriseJobs from "./components/EnterpriseJobs/EnterpriseJobs";
+import MyTrainings from "./components/MyTrainings/MyTrainings";
 
 export const AppContext = createContext();
 
@@ -72,6 +73,7 @@ function App() {
             <Route path="/learners" element={<Learners />} />
             <Route path="/addjob" element={<AddJob />} />
             <Route path="/trainings" element={<Trainings />} />
+            <Route path="/my-trainings" element={<MyTrainings />} />
             <Route path="*" element={<Navigate to="/"/>} />
           </Routes>
         </div>

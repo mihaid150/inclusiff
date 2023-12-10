@@ -10,7 +10,16 @@ function useTrainings() {
         }
     }
 
-    return { getTrainings };
+    const getLearnerTrainings = async (userId) => {
+        const response = await axios.get(`http://localhost:10004/${userId}`)
+        if (response.status === 200) {
+            return response.data
+        } else {
+            console.error("Error getting learner trainings")
+        }
+    }
+
+    return { getTrainings, getLearnerTrainings };
 }
 
 export default useTrainings;
