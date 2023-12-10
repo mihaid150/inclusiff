@@ -27,4 +27,8 @@ public interface HelpApi {
     @ResponseStatus(HttpStatus.OK)
     @GetMapping(path = "/training/{trainingExternalId}/participants")
     ResponseEntity<List<UUID>> getTrainingParticipants(@PathVariable @NotNull UUID trainingExternalId);
+
+    @ResponseStatus(HttpStatus.OK)
+    @GetMapping(path = "/user/{userExternalId}/trainings", produces = MediaType.APPLICATION_JSON_VALUE)
+    ResponseEntity<List<TrainingDto>> getUserTrainings(@PathVariable @NotNull UUID userExternalId);
 }

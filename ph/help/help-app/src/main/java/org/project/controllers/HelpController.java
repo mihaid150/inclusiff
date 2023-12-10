@@ -21,7 +21,13 @@ public class HelpController implements HelpApi {
 
     @Override
     public ResponseEntity<ResponseMessage> registerToTraining(TrainingRegisterRequest request) {
-        return ResponseEntity.ok(helpService.registerToTraining(request));
+        try {
+            return ResponseEntity.ok(helpService.registerToTraining(request));
+        } catch (Exception ex) {
+            return ResponseEntity.badRequest()
+                    .body(ResponseMessage.builder().message(ex.getMessage()).build());
+        }
+
     }
 
     @Override
@@ -32,5 +38,10 @@ public class HelpController implements HelpApi {
     @Override
     public ResponseEntity<List<UUID>> getTrainingParticipants(UUID trainingExternalId) {
         return ResponseEntity.ok(helpService.getTrainingParticipants(trainingExternalId));
+    }
+
+    @Override
+    public ResponseEntity<List<TrainingDto>> getUserTrainings(UUID userExternalId) {
+        return ResponseEntity.ok(helpService.getUserTrainings(userExternalId));
     }
 }

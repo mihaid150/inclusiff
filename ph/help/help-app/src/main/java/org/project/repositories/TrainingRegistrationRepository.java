@@ -8,4 +8,5 @@ import java.util.UUID;
 
 public interface TrainingRegistrationRepository extends JpaRepository<TrainingRegistrationEntity, Integer> {
     List<TrainingRegistrationEntity> findAllByTrainingExternalId(UUID trainingExternalId);
+    List<TrainingRegistrationEntity> findAllByUserExternalId(UUID userExternalId);
 }
